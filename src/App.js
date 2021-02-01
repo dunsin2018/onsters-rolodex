@@ -20,7 +20,7 @@ class App extends Component {
         <input
           type="search"
           placeholder="search monsters"
-          onChange={(e) => console.log(e)}
+          onChange={(e) => this.setState({ searchField: e.target.value })}
         />
         <CardList monsters={this.state.monsters} />
       </div>
