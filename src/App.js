@@ -1,24 +1,16 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 
 class App extends Component {
   state = {
-    monsters: [
-      {
-        name: "Frankenstein",
-        id: "a1",
-      },
-      {
-        name: "Dracula",
-        id: "a2",
-      },
-      {
-        name: "Zombie",
-        id: "a3",
-      },
-    ],
+    monsters: [],
   };
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users").then((response) =>
+      response.json().then((users) => this.setState({ monsters: users }))
+    );
+  }
 
   render() {
     return (
